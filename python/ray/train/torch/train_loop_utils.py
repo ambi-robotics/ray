@@ -573,6 +573,8 @@ class _TorchAccelerator(Accelerator):
                     "timeout": loader.timeout,
                     "worker_init_fn": worker_init_fn,
                     "generator": generator,
+                    "prefetch_factor": loader.prefetch_factor,
+                    "persistent_workers": loader.persistent_workers,
                     "sampler": DistributedSampler(loader.dataset, shuffle=shuffle),
                 }
                 return DataLoader(**data_loader_args)
